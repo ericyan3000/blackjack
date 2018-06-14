@@ -111,7 +111,7 @@ def hit(deck,hand):
 
 def hit_or_stand(deck,hand):
     global hitting
-    print (f"Your hand has {hand.get_value()}.")
+    #print (f"Your hand has {hand.get_value()}.")
     play_ans = input("Hit(h) or Stand(s): ")
     if not play_ans.lower() in ("h","s"):
         print("Not valid input.")
@@ -122,28 +122,18 @@ def hit_or_stand(deck,hand):
         hitting = False
 
 def show_some(player,dealer):
-    player_hand = ""
-    for card in player.cards:
-        player_hand += (f"{card.rank} of {card.suit},") 
-    print (f"Player's hand: {player_hand}")
+    #player_hand = ""
+    #for card in player.cards:
+    #    player_hand += (f"{card.rank} of {card.suit},") 
+    print (f"\nDealer's hand:\n <hidden>\n {dealer.cards[1]}")
+    print ("\nPlayer's hand:", *player.cards, sep='\n ')
     print (f"Player's value is {player.get_value()}")
-    dealer_hand = "hidden, "
-    for card in dealer.cards[1:]:
-        #print (type(card))
-        dealer_hand += (f"{card.rank} of {card.suit},")
-    print (f"Dealer's hand: {dealer_hand}")
     pass
     
 def show_all(player,dealer):
-    player_hand = ""
-    for card in player.cards:
-        player_hand += (f"{card.rank} of {card.suit},") 
-    print (f"Player's hand: {player_hand}")
+    print (f"\nPlayer's hand:", *player.cards, sep='\n ')
     print (f"Player's value is {player.get_value()}")
-    dealer_hand = ""
-    for card in dealer.cards:
-        dealer_hand += (f"{card.rank} of {card.suit},")
-    print (f"Dealer's hand: {dealer_hand}")
+    print (f"\nDealer's hand:", *dealer.cards, sep='\n')
     print (f"Dealer's value: {dealer.get_value()}")
     pass
 
